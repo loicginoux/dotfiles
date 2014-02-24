@@ -1,10 +1,10 @@
 [user]
-  name = Sebastien Saunier             # TODO: change this to your name
-  mail = seb@saunier.me                # TODO: change this to your email
-  email = seb@saunier.me               # TODO: change this to your email
+  name = lginoux
+  email = lginoux@gmail.com
+  mail = lginoux@gmail.com
 
 [github]
-  user = ssaunier                      # TODO: change this to your github username
+  user = loicginoux
 
 [color]
   branch = auto
@@ -20,6 +20,7 @@
 [core]
   editor = vim
   pager = cat
+  excludesfile = /Users/lginoux/.gitignore_global
 
 [alias]
   co = checkout
@@ -37,7 +38,9 @@
 
   # http://www.jukie.net/bart/blog/pimping-out-git-log
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-
+  lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+  lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+  
   # Serve local repo. http://coderwall.com/p/eybtga
   # Then other can access via `git clone git://#{YOUR_IP_ADDRESS}/
   serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
@@ -52,5 +55,6 @@
 
 [diff]
   tool = Kaleidoscope
+
 [push]
 	default = simple

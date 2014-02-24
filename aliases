@@ -22,3 +22,13 @@ alias org-pr='hub pull-request -h \
 
 # Bower
 alias bower='noglob bower'
+
+alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
+alias st2='cd Library/Application\ Support/Sublime\ Text\ 2/Packages/'
+
+alias cuc='bundle exec cucumber'
+
+# alerti specific
+alias rvm-alerti='rvm --default use ruby-1.8.7-p374;rm -f ~/.rvm/gems/default;ln -s ruby-1.8.7-p374 ~/.rvm/gems/default'
+alias rvm-neo='rvm use ruby-1.9.3-p448@neo_alerti --default;rm -f ~/.rvm/gems/default;ln -s "ruby-1.9.3-p448@neo_alerti" ~/.rvm/gems/default'
+alias ls = "ls -al"

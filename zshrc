@@ -16,7 +16,13 @@ ZSH_THEME="gallois"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
+#COMPLETION_WAITING_DOTS="true"
+
+# Uncomment following line if you want to  shown in the command execution time stamp 
+# in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
+# yyyy-mm-dd
+HIST_STAMPS="dd/mm/yyyy"
+
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -26,10 +32,10 @@ source $ZSH/oh-my-zsh.sh
 export PATH='~/.rbenv/shims:/usr/local/bin:/usr/local/share:/usr/local/opt:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/X11/bin:/usr/texbin:~/bin'
 
 # Disable auto update of title name (for tmux, see http://superuser.com/a/320316)
-DISABLE_AUTO_TITLE=true
+#DISABLE_AUTO_TITLE=true
 
 # Disable zsh correction
-unsetopt correct_all
+#unsetopt correct_all
 
 # To use Homebrew's directories rather than ~/.rbenv
 export RBENV_ROOT=/usr/local/var/rbenv
@@ -37,5 +43,30 @@ export RBENV_ROOT=/usr/local/var/rbenv
 # To enable shims and autocompletion add to your profile:
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+#imagemagick config
+export MAGICK_HOME="/usr/local/ImageMagick-6.7.5"
+export PATH="$MAGICK_HOME/bin:$PATH"
+export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib/"
+
+export PATH=$PATH:/Users/lginoux/.rvm/gems/ruby-1.9.2-p290
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# for rabbitmq-server
+export PATH="$PATH:/usr/local/sbin"
+
+#for mysql
+export PATH="$PATH:/Applications/xampp/xamppfiles/bin"
+
+# stop annoying sudo error msg
+unset LD_LIBRARY_PATH
+
 # Gather handy aliases
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
+
+
+unalias run-help
+  autoload run-help
+  HELPDIR=/usr/local/share/zsh/helpfiles

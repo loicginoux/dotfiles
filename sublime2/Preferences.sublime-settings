@@ -1,7 +1,30 @@
 {
-	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
 	"detect_indentation": false,
-	"draw_white_space": true,
+	"bold_folder_labels": true,
+	"caret_style": "phase",
+	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+	"draw_white_space": "all",
+	"fade_fold_buttons": false,
+	"font_size": 17.0,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
+	"save_on_focus_lost": true,
+	"scroll_past_end": false,
+	"tab_size": 2,
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": false,
+	"show_minimap": false,
+	"alignment_chars":
+	[
+		", :",
+		" = "
+	],
+	"alignment_space_chars":
+	[
+		":"
+	],
 	"file_exclude_patterns":
 	[
 		"*.pyc",
@@ -44,20 +67,38 @@
 		"bower_components",
 		".grunt"
 	],
-	"font_size": 11.0,
-	"highlight_modified_tabs": true,
-	"hot_exit": false,
-	"matchBracketsAngle": true,
-	"matchBracketsBraces": true,
-	"matchBracketsSquare": true,
-	"remember_open_files": false,
-	"rulers":
+	"ignored_packages":
 	[
-		80
+		"jQuery",
+		"Git",
+		"LESS",
+		"Nettuts+ Fetch",
+		"Vintage",
+		"MultiTaskBuild",
+		"ColorPick",
+		"RSpec (snippets and syntax)",
+		"Inc-Dec-Value",
+		"ERB Insert and Toggle Commands",
+		"Placeholders",
+		"DocBlockr",
+		"JS2Coffee",
+		"Jasmine",
+		"Cucumber",
+		"Emmet",
+		"SendToPasteBin",
+		"RSpec",
+		"rspec-snippets",
+		"Markdown Preview",
+		"JsFormat",
+		"SublimeGit",
+		"Expand Selection to Quotes",
+		"EJS",
+		"jQuery Snippets pack",
+		"JsMinifier",
+		"Dayle Rees Color Schemes",
+		"RubyTest",
+		"FileDiffs"
 	],
-	"show_minimap": false,
-	"tab_size": 2,
-	"theme": "Soda Dark.sublime-theme",
 	"todo":
 	{
 		"folder_exclude_patterns":
@@ -72,9 +113,5 @@
 			"NOTE": "NOTE[\\s]*?:+(?P<note>.*)$",
 			"TODO": "TODO(\\([^\\(\\)]*\\))?[\\s]*?:+(?P<todo>.*)$"
 		}
-	},
-	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true,
-	"use_tab_stops": true,
-	"wordWrap": false
+	}
 }
