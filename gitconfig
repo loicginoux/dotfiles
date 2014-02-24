@@ -23,12 +23,12 @@
   excludesfile = /Users/lginoux/.gitignore_global
 
 [alias]
-  co = checkout
   st = status
   br = branch
-  ci = commit
+  co = commit
   fo = fetch origin
   mom = merge origin master
+  pom = push origin master
   d = !git --no-pager diff
   dt  = difftool
   stat = !git --no-pager diff --stat
