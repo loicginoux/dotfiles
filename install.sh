@@ -21,17 +21,24 @@ REGULAR="\\033[0;39m"
 YELLOW="\\033[1;33m"
 GREEN="\\033[1;32m"
 
-# Setup a machine for Sublime Text 2
-SUBLIME_USER_DIR=~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User
-SUBLIME_PREFERENCES_FILE=Preferences.sublime-settings
-if [ -d "$SUBLIME_USER_DIR" ]; then
-  if [ ! -e "$SUBLIME_USER_DIR/$SUBLIME_PREFERENCES_FILE.backup" ]; then
-    mv "$SUBLIME_USER_DIR/$SUBLIME_PREFERENCES_FILE" "$SUBLIME_USER_DIR/$SUBLIME_PREFERENCES_FILE.backup"
-    echo "-----> Old sublime preferences file backuped to $SUBLIME_USER_DIR/$SUBLIME_PREFERENCES_FILE.backup"
-  fi
 
-  if [ ! -L "$SUBLIME_USER_DIR/$SUBLIME_PREFERENCES_FILE" ]; then
-    ln -s "$PWD/sublime2/$SUBLIME_PREFERENCES_FILE" "$SUBLIME_USER_DIR/$SUBLIME_PREFERENCES_FILE"
+# Copy Sublime Text 2 user settings from dropbox
+# https://sublime.wbond.net/docs/syncing#dropbox-osx
+
+SUBLIME_PACK_DIR=~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User
+DROPBOX_SUBLIME_USER_DIR=~/Dropbox/appdata/sublime/User
+if [ -d "$SUBLIME_PACK_DIR" ]; then
+  if [ -d "$DROPBOX_SUBLIME_USER_DIR" ]; then
+    rm -r "$SUBLIME_PACK_DIR/User"
+    ln -s "$DROPBOX_SUBLIME_USER_DIR" "$SUBLIME_PACK_DIR/User"
+    echo "-----> Sublime user settings are now served from ${DROPBOX_SUBLIME_USER_DIR}"
+  else
+    echo "You sublime synchronized settings are not in ${YELLOW}${$SUBLIME_USER_DIR}${REGULAR}"
+    echo "You first should keep your ST2 user settings in Dropbox like that:"
+    echo "cd ${SUBLIME_PACK_DIR}"
+    echo "mkdir ~/Dropbox/appdata/sublime"
+    echo "mv User ~/Dropbox/appdata/sublime"
+    echo "ln -s ${DROPBOX_SUBLIME_USER_DIR}"
   fi
 else
   echo "You ${YELLOW}do not have${REGULAR} Sublime Text 2 installed."
