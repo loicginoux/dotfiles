@@ -23,6 +23,10 @@ alias org-pr='hub pull-request -h \
 # Bower
 alias bower='noglob bower'
 
+# Rake
+alias rake="noglob rake"
+
+
 alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
 alias st2='cd Library/Application\ Support/Sublime\ Text\ 2/Packages/'
 
