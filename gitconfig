@@ -29,6 +29,7 @@
   fo = fetch origin
   mom = merge origin master
   pom = push origin master
+  pem = push heroku master
   d = !git --no-pager diff
   dt  = difftool
   stat = !git --no-pager diff --stat
