@@ -31,7 +31,7 @@ HIST_STAMPS="dd/mm/yyyy"
 plugins=(git git-extras osx rails sublime zsh-syntax-highlighting zsh-history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
-export PATH='~/project/dotfiles/bin:~/.rbenv/shims:/usr/local/bin:/usr/local/share:/usr/local/opt:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/X11/bin:/usr/texbin:~/bin'
+export PATH='$PATH:~/project/dotfiles/bin:~/.rbenv/shims:/usr/local/bin:/usr/local/share:/usr/local/opt:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/X11/bin:/usr/texbin:~/bin'
 
 
 fpath=($ZSH/functions $fpath)
@@ -66,7 +66,13 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="$PATH:/usr/local/sbin"
 
 #for mysql
-export PATH="$PATH:/Applications/xampp/xamppfiles/bin"
+#export PATH="$PATH:/Applications/xampp/xamppfiles/bin"
+
+# MYSQL=/usr/local/mysql/bin
+MYSQL=/usr/local/Cellar/mysql55/5.5.30/bin
+
+export PATH=$PATH:$MYSQL
+export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 
 # stop annoying sudo error msg
 unset LD_LIBRARY_PATH
@@ -78,3 +84,6 @@ unset LD_LIBRARY_PATH
 unalias run-help
   autoload run-help
   HELPDIR=/usr/local/share/zsh/helpfiles
+
+# autojump script
+[[ -s $(brew --prefix)/etc/autojump.sh ]] && . $(brew --prefix)/etc/autojump.sh

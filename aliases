@@ -27,8 +27,8 @@ alias bower='noglob bower'
 alias rake="noglob rake"
 
 
-alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
-alias st2='cd Library/Application\ Support/Sublime\ Text\ 2/Packages/'
+alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+alias st='cd Library/Application\ Support/Sublime\ Text/Packages/'
 
 alias cuc='bundle exec cucumber'
 
