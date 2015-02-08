@@ -81,9 +81,15 @@ unset LD_LIBRARY_PATH
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
 
 
-unalias run-help
+# unalias run-help
   autoload run-help
   HELPDIR=/usr/local/share/zsh/helpfiles
 
 # autojump script
 [[ -s $(brew --prefix)/etc/autojump.sh ]] && . $(brew --prefix)/etc/autojump.sh
+
+bindkey -e
+bindkey '\e\e[C' forward-word
+bindkey '\e\e[D' backward-word
+
+source ~/.git-flow-completion.zsh

@@ -34,5 +34,21 @@ alias cuc='bundle exec cucumber'
 
 # alerti specific
 alias rvm-alerti='rvm --default use ruby-1.8.7-p374;rm -f ~/.rvm/gems/default;ln -s ruby-1.8.7-p374 ~/.rvm/gems/default'
-alias rvm-neo='rvm use ruby-1.9.3-p448@neo_alerti --default;rm -f ~/.rvm/gems/default;ln -s "ruby-1.9.3-p448@neo_alerti" ~/.rvm/gems/default'
+alias rvm-neo='rvm use ruby-1.9.3-p448@neo_alerti --default;rm -f ~/.rvm/gems;ln -s "ruby-1.9.3-p448@neo_alerti" ~/.rvm/gems/default'
 
+# get my ip
+alias myip='curl ifcfg.me'
+
+alias mylocalip='ifconfig |grep inet'
+
+
+# heroku-toolbelt
+alias hca='heroku run rails console --app alerti'
+alias hcas='heroku run rails console --app alerti-staging'
+alias hla='heroku logs -tail --app alerti'
+alias hlas='heroku logs -tail --app alerti-staging'
+
+alias glg='git lg1'
+alias glg10='git lg1 -10'
+
+alias help='cheat'
