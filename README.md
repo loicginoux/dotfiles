@@ -17,6 +17,10 @@ rename them as ```#{file}.backup```.
 
     ./install.sh
 
+If you want to install all your favorite apps 
+
+    ./install_all_apps.sh
+
 There is configuration for `zsh` so switch your shell from the default `bash` to `zsh` on OS X:
 
     chsh -s /bin/zsh
