@@ -44,11 +44,18 @@ alias mylocalip='ifconfig |grep inet'
 
 # heroku-toolbelt
 alias hca='heroku run rails console --app alerti'
+alias hcac='heroku run rails console --app alerti-crawler'
 alias hcas='heroku run rails console --app alerti-staging'
+alias hcasc='heroku run rails console --app alerti-crawler-staging'
+
 alias hla='heroku logs -tail --app alerti'
+alias hlac='heroku logs -tail --app alerti-crawler'
 alias hlas='heroku logs -tail --app alerti-staging'
+alias hlasc='heroku logs -tail --app alerti-crawler-staging'
 
 alias glg='git lg1'
 alias glg10='git lg1 -10'
 
 alias help='cheat'
+
+alias ls='ls -al'
