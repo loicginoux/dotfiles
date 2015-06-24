@@ -1,6 +1,6 @@
 [user]
-  name = lginoux
-  email = lginoux@gmail.com
+	name = Loic Ginoux
+	email = lginoux@gmail.com
   mail = lginoux@gmail.com
 
 [github]
@@ -20,15 +20,20 @@
 [core]
   editor = vim
   pager = cat
-  excludesfile = /Users/lginoux/.gitignore_global
+	excludesfile = /Users/loic/.gitignore_global
+	filemode = false
 
 [alias]
   st = status
   br = branch
   co = commit
+  ch = checkout
   fo = fetch origin
   mom = merge origin master
   pom = push origin master
+  pod = push origin develop
+  prom = pull --rebase origin master
+  prod = pull --rebase origin develop
   pem = push heroku master
   d = !git --no-pager diff
   dt  = difftool
@@ -41,7 +46,7 @@
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
   lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
-  
+
   # Serve local repo. http://coderwall.com/p/eybtga
   # Then other can access via `git clone git://#{YOUR_IP_ADDRESS}/
   serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
@@ -59,3 +64,9 @@
 
 [push]
 	default = simple
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.0.5.2/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
