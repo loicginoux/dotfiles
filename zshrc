@@ -20,7 +20,7 @@ ZSH_THEME="gallois"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 #COMPLETION_WAITING_DOTS="true"
 
-# Uncomment following line if you want to  shown in the command execution time stamp 
+# Uncomment following line if you want to  shown in the command execution time stamp
 # in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
 # yyyy-mm-dd
 HIST_STAMPS="dd/mm/yyyy"
@@ -55,9 +55,9 @@ export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib/"
 
 export PATH=$PATH:/Users/lginoux/.rvm/gems/ruby-1.9.2-p290
 
-# makes rvm working 
+# makes rvm working
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -93,3 +93,5 @@ bindkey '\e\e[C' forward-word
 bindkey '\e\e[D' backward-word
 
 source ~/.git-flow-completion.zsh
+
+export EDITOR=subl
