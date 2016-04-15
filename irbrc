@@ -1,6 +1,7 @@
 require "awesome_print"
-AwesomePrint.irb!
+include Rails.application.routes.url_helpers
 
+AwesomePrint.irb!
 def y(obj)
   puts obj.to_yaml
 end

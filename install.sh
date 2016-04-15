@@ -77,4 +77,4 @@ echo "       ${YELLOW}alias bi='bundle install'${REGULAR}"
 echo "       ${YELLOW}alias rtest='be rake test && be rspec spec --color && open coverage/index.html'${REGULAR}"
 
 echo ""
-echo "-----> Don't forget to source your ${GREEN}~/.zshrc${REGULAR} when you are done."
+echo "-----> Don't forget to '${GREEN}source ~/.zshrc${REGULAR}' when you are done."
