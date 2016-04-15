@@ -64,3 +64,6 @@ alias ls='ls -al'
 # ex: localserver http 3001
 alias localserver='~/Desktop/ngrok'
 alias server='~/Desktop/ngrok'
+
+# tail rails development logs
+alias logd='tail -f log/development.log'
