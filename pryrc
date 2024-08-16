@@ -4,3 +4,6 @@ if defined?(PryDebugger)
   Pry.commands.alias_command 'nn', 'next'
   Pry.commands.alias_command 'ff', 'finish'
 end
+
+require "amazing_print"
+AmazingPrint.pry!

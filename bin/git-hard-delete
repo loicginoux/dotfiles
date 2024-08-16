@@ -1,0 +1,12 @@
+#!/bin/sh
+
+branch=$1
+
+if [ ! -z "$1" ]
+then
+  git branch -D $branch
+  git push -d origin $branch
+  echo "both local and origin remote branch deleted"
+else
+  echo "Branch name is not specified"
+fi

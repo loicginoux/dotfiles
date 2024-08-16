@@ -1,0 +1,18 @@
+#!/bin/sh
+
+branches=$(
+  git branch --format "%(refname:lstrip=2) %(upstream:track)" |\
+    egrep -v "^(main|master)" |\
+    grep "\[gone\]" |\
+    cut -f1 -d' '
+)
+
+[[ -z "$branches" ]] && exit
+
+echo
+echo "Delete these branches?"
+echo
+echo "$branches"
+read
+
+git br -D $branches

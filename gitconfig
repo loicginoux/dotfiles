@@ -1,5 +1,5 @@
 [user]
-	name = Loic Ginoux
+	name = Loic
 	email = lginoux@gmail.com
   mail = lginoux@gmail.com
 
@@ -18,9 +18,9 @@
   remote = yellow
 
 [core]
-  editor = vim
+	editor = subl -n -w
   pager = cat
-	excludesfile = /Users/loic/.gitignore_global
+	excludesfile = /Users/loicginoux/.gitignore
 	filemode = false
 
 [alias]
@@ -64,9 +64,17 @@
 
 [push]
 	default = simple
+	autoSetupRemote = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.0.5.2/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[init]
+	defaultBranch = main

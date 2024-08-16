@@ -20,8 +20,6 @@ alias org-pr='hub pull-request -h \
   `git remote -v | grep -oE -m1 "github.com:([^/]*)" \
   | sed "s/github.com://"`:`git rev-parse --abbrev-ref HEAD`'
 
-# Bower
-alias bower='noglob bower'
 
 # Rake
 alias rake="noglob rake"
@@ -31,10 +29,6 @@ alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 alias st='cd Library/Application\ Support/Sublime\ Text/Packages/'
 
 alias cuc='bundle exec cucumber'
-
-# alerti specific
-alias rvm-alerti='rvm --default use ruby-1.8.7-p374;rm -f ~/.rvm/gems/default;ln -s ruby-1.8.7-p374 ~/.rvm/gems/default'
-alias rvm-neo='rvm use ruby-1.9.3-p448@neo_alerti --default;rm -f ~/.rvm/gems;ln -s "ruby-1.9.3-p448@neo_alerti" ~/.rvm/gems/default'
 
 # get my ip
 alias myip='curl ifcfg.me'
@@ -47,11 +41,6 @@ alias hca='heroku run rails console --app alerti'
 alias hcac='heroku run rails console --app alerti-crawler'
 alias hcas='heroku run rails console --app alerti-staging'
 alias hcasc='heroku run rails console --app alerti-crawler-staging'
-
-alias hla='heroku logs -t -a alerti'
-alias hlac='heroku logs -t -a alerti-crawler'
-alias hlas='heroku logs -t -a alerti-staging'
-alias hlasc='heroku logs -t -a alerti-crawler-staging'
 
 alias glg='git lg1'
 alias glg10='git lg1 -10'
@@ -67,3 +56,64 @@ alias server='~/Desktop/ngrok'
 
 # tail rails development logs
 alias logd='tail -f log/development.log'
+
+alias q=bin/quality
+alias tailt='tail -f log/test.log'
+
+
+alias hcc="heroku run rails console -a cocolis-api"
+alias hcs="heroku run rails console -a staging-cocolis-api"
+alias hlc="heroku logs -t -a cocolis-api"
+alias hls="heroku logs -t -a staging-cocolis-api"
+
+alias jc="cd ~/projects/clients/cocolis/cocolis-api"
+alias jfo="cd ~/projects/clients/cocolis/cocolis-fo"
+alias je="cd ~/projects/clients/epicery/api"
+alias jew="cd ~/projects/clients/epicery/web"
+alias mig="rake db:migrate"
+alias migt="rake db:migrate RAILS_ENV=test"
+alias rce="bin/connect.sh dev rails console"
+alias rcet="bin/connect.sh testing-local rails console"
+alias rse="bin/connect.sh dev rails server"
+alias rset="bin/connect.sh testing-local rails console"
+alias switchc="brew unlink proj && brew uninstall proj --ignore-dependencies && brew install sethdeckard/proj/proj"
+alias switche="brew unlink proj && brew install proj"
+
+alias ra="rubocop -a"
+
+hlpr() {
+  heroku logs -t -a "cocolis-api-pr-$1"
+}
+
+hcpr() {
+  heroku run rails console -a "cocolis-api-pr-$1"
+}
+
+confpr() {
+  heroku config -a "cocolis-api-pr-$1"
+}
+
+reloaddbcocolis() {
+    bin/rails db:environment:set RAILS_ENV=development
+    rails db:drop
+    rails db:create
+    rails db:migrate
+    heroku pg:backups:download -a staging-cocolis-api
+    pg_restore --verbose --clean --no-acl --no-owner -h localhost -d cocolis_v3_development ./latest.dump
+    rm ./latest.dump
+}
+
+linkprcc() {
+  heroku config:set API_URL="https://cocolis-api-pr-$1.herokuapp.com/api/v1" -a cocolis-fo-br-cc-$2-dummy &&  heroku config:set FRONTEND_URL="https://cocolis-fo-br-cc-$2-dummy.herokuapp.com" -a cocolis-api-pr-$1
+}
+
+linkprdevelop() {
+  heroku config:set API_URL="https://cocolis-api-pr-$1.herokuapp.com/api/v1" -a cocolis-fo-br-develop &&  heroku config:set FRONTEND_URL="https://cocolis-fo-br-develop.herokuapp.com" -a cocolis-api-pr-$1
+  heroku config:set BONSAI_URL="$(heroku config  -a cocolis-api-pr-$1 | grep 'BONSAI_URL' | sed 's/BONSAI_URL:                      //g')" -a cocolis-fo-br-develop
+}
+
+linkprmaster() {
+  heroku config:set API_URL="https://cocolis-api-pr-$1.herokuapp.com/api/v1" -a cocolis-fo-br-master &&  heroku config:set FRONTEND_URL="https://cocolis-fo-br-master.herokuapp.com" -a cocolis-api-pr-$1
+  heroku config:set BONSAI_URL="$(heroku config  -a cocolis-api-pr-$1 | grep 'BONSAI_URL' | sed 's/BONSAI_URL:                      //g')" -a cocolis-fo-br-master
+}
+
