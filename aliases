@@ -55,6 +55,7 @@ alias localserver='~/Desktop/ngrok'
 alias server='~/Desktop/ngrok'
 
 # tail rails development logs
+
 alias logd='tail -f log/development.log'
 
 alias q=bin/quality
@@ -117,3 +118,4 @@ linkprmaster() {
   heroku config:set BONSAI_URL="$(heroku config  -a cocolis-api-pr-$1 | grep 'BONSAI_URL' | sed 's/BONSAI_URL:                      //g')" -a cocolis-fo-br-master
 }
 
+alias logd='tail -f log/development.log'
